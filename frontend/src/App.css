@@ -1,0 +1,130 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+body {
+  font-family: sans-serif; /* シンプルなフォントに変更 */
+  background-color: #f0f0f0; /* 明るい背景色 */
+  color: #333; /* 標準的な文字色 */
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  margin-bottom: 0.5em;
+}
+
+form {
+  background-color: #fff;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 2em;
+}
+
+form div {
+  margin-bottom: 1em;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5em;
+  text-align: left;
+}
+
+input[type="text"],
+textarea {
+  width: calc(100% - 22px); /* paddingとborderを考慮 */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* paddingとborderをwidthに含める */
+}
+
+textarea {
+  min-height: 80px; /* テキストエリアの最小の高さを設定 */
+  resize: vertical; /* 垂直方向のリサイズのみ許可 */
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: #fff;
+  padding: 1.5em;
+  margin-bottom: 1em;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  text-align: left;
+}
+
+li h3 a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+li h3 a:hover {
+  text-decoration: underline;
+}
+
+li p {
+  margin: 0.5em 0;
+}
+
+li small {
+  color: #666;
+}

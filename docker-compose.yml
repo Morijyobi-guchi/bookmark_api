@@ -1,0 +1,43 @@
+services:
+  # データベースサービス (PostgreSQL) を新しく追加
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=bookmarks_db
+    ports:
+      - "5432:5432"
+
+  # バックエンドサービスを修正
+  backend:
+    build: ./bookmark_api
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./bookmark_api:/app
+    environment:
+      # データベースの接続先を、新しく作るdbサービスに向ける
+      - DATABASE_URL=postgresql://user:password@db:5432/bookmarks_db
+      - FLASK_ENV=development
+    depends_on:
+      - db # backendはdbが起動してから起動するようにする
+
+  # フロントエンドサービスは変更なし
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+# データを永続化するためのボリュームを定義
+volumes:
+  postgres_data:
